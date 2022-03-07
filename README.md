@@ -1,2 +1,3 @@
-# StainGenerator2D-Godot-C-
-Godot library for the generation of random stains based on a 2D coordinate system. Work in progress. 
+# StainGenerator2D [Godot-C#]
+Work in progress. 
+Godot library for the generation of random stains based on a 2D coordinates system.

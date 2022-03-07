@@ -9,7 +9,7 @@ namespace Utilities{
         /// <summary>
         /// Generates a stain at the given origin position.
         /// </summary>
-        static public List<Vector2> GenerateStain(Vector2 origin, uint area, bool allowDiagonalSelection = true){
+        static public List<Vector2> Generate(Vector2 origin, uint area, bool allowDiagonalSelection = true){
             List<Vector2> stain = new List<Vector2>();
             stain.Add(origin);
 
@@ -42,7 +42,7 @@ namespace Utilities{
         /// <summary>
         /// Generates a Bresenham's line from the startPoint to the endPoint.
         /// </summary>
-        private static List<Vector2> GenerateBresenhamLine(Vector2 startPoint, Vector2 endPoint){
+        public static List<Vector2> GenerateBresenhamLine(Vector2 startPoint, Vector2 endPoint){
             List<Vector2> line = new List<Vector2>();
 
             int distanceX = Math.Abs((int)endPoint.x - (int)startPoint.x);
@@ -72,9 +72,24 @@ namespace Utilities{
             List<Vector2> stainedLine = GenerateBresenhamLine(startPoint,endPoint);
             Vector2[] lineCopy = stainedLine.ToArray();
             foreach (Vector2 cell in lineCopy){
-                stainedLine = stainedLine.Concat<Vector2>(GenerateStain(cell,thickness,allowDiagonalSelection)).ToList<Vector2>();
+                stainedLine = stainedLine.Concat<Vector2>(Generate(cell,thickness,allowDiagonalSelection)).ToList<Vector2>();
             }
             return stainedLine.Distinct<Vector2>().ToList<Vector2>();
+        }
+
+        /// <summary>
+        /// Given a texture, renders the stain in the scene.
+        /// </summary>
+        public static void Render(List<Vector2> stain, Texture texture, Node2D world, Vector2 position){
+            foreach (Vector2 cell in stain){
+                Sprite sprite = new Sprite();
+                sprite.Texture = texture;
+                world.AddChild(sprite);
+                sprite.Position = new Vector2(
+                    position.x + cell.x*texture.GetWidth(),
+                    position.y + cell.y*texture.GetHeight()
+                );
+            }
         }
     }
 

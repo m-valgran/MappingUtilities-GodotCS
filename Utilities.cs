@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Utilities{
+    
     static class StainGenerator2D{
 
         /// <summary>
@@ -23,11 +24,13 @@ namespace Utilities{
             int moveX;
             int moveY;
 
+            Random rnd = new Random();
+
             for (int i = 0; i < area-1; i++){
                 do{
-                    currentCell = stain[Misc.GetRandomInt(0,stain.Count-1)];
-                    moveX = Misc.GetRandomInt(-1,1);
-                    moveY = Misc.GetRandomInt(-1,1);
+                    currentCell = stain[rnd.Next(0,stain.Count)];
+                    moveX = rnd.Next(-1,2);
+                    moveY = rnd.Next(-1,2);
                     nextCell = new Vector2(currentCell.x+moveX,currentCell.y+moveY);
 
                     repeatedCell = stain.IndexOf(nextCell) != -1;
@@ -68,7 +71,7 @@ namespace Utilities{
         /// <summary>
         /// Generates a line from the startPoint to the endPoint, then stains it according to the given thickness.
         /// </summary>
-        public static List<Vector2> GenerateStainedLine(Vector2 startPoint, Vector2 endPoint,uint thickness, bool allowDiagonalSelection = true){
+        public static List<Vector2> GenerateStainedLine(Vector2 startPoint, Vector2 endPoint,uint thickness = 2, bool allowDiagonalSelection = true){
             List<Vector2> stainedLine = GenerateBresenhamLine(startPoint,endPoint);
             Vector2[] lineCopy = stainedLine.ToArray();
             foreach (Vector2 cell in lineCopy){
@@ -77,6 +80,12 @@ namespace Utilities{
             return stainedLine.Distinct<Vector2>().ToList<Vector2>();
         }
 
+
+        /*
+            WARNING: consider that bresenham's lines are NOT  a stain (conceptually), so saying that this function
+            expects a "stain" is conceptually wrong. Acually it can render any matrix given, so moving this function
+            to something like "matrix" class would be better.
+        */
         /// <summary>
         /// Given a texture, renders the stain in the scene.
         /// </summary>
@@ -84,19 +93,39 @@ namespace Utilities{
             foreach (Vector2 cell in stain){
                 Sprite sprite = new Sprite();
                 sprite.Texture = texture;
-                world.AddChild(sprite);
                 sprite.Position = new Vector2(
                     position.x + cell.x*texture.GetWidth(),
                     position.y + cell.y*texture.GetHeight()
                 );
+                sprite.Name = $"{cell.x};{cell.y}";
+                world.AddChild(sprite);
             }
         }
-    }
 
-    static class Misc{
-        static public int GetRandomInt(int min, int max){
-            Random rnd = new Random();
-            return rnd.Next(min,max+1);
+        /// <summary>
+        /// Fills the stain surroundings.
+        /// </summary>
+        public static List<Vector2> Fill(List<Vector2>stain,ushort thickness = 0){
+
+            List<Vector2> fill = new List<Vector2>();
+
+            int[] xArray = new int[stain.Count];
+            int[] yArray = new int[stain.Count];
+            for (int i = 0; i < stain.Count; i++){
+                xArray[i] = (int)stain[i].x;
+                yArray[i] = (int)stain[i].y;
+            }
+
+            for (int y = yArray.Min()-thickness; y < yArray.Max()+thickness+1; y++){
+                for (int x = xArray.Min()-thickness; x < xArray.Max()+thickness+1; x++){
+                    Vector2 cell = new Vector2(x,y);
+                    if(stain.IndexOf(cell) == -1){
+                        fill.Add(cell);
+                    }
+                }
+            }
+
+            return fill;
         }
     }
 }

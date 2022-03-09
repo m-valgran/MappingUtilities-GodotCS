@@ -1,8 +1,15 @@
-# StainGenerator2D [Godot-C#]
+# Mapping Utilities [Godot-C#]
 ## Work in progress.
 ### What is this?
-StainGenerator2D is a Godot library for the automatic generation of random stains based on a 2D coordinates system. 
-Useful to represent irregular bodies in a X;Y plain, for example forests, rivers, lakes, caves, roads, dungeons, etc...
+Mapping Utilities is a Godot C# library for automatic shape generation based on coordinates of a XY plane.
+This tool is intended to make the logical creation and representation of regular and irregular bodies much easier. 
+### What does this do?
+With Mapping Utilities we can simulate, for instance: forests, rivers, roads, dungeons, cities, etc, and print them
+in a bidimensional plane.
+### What does this NOT do? (As for now)
+Mapping Utilities cannot simulate depth or elevation, as it lacks of a third dimension to work with 
+(in other words: It outputs a XY plane, not a XYZ plane).
+So, for example, given the case of creating a mountain, It is possible to generate Its boundaries, but not the progressive height from Its feet to the summit.
 
 ![1](https://user-images.githubusercontent.com/47353542/156956727-1cbfe154-7935-4b85-ad76-d6bcd9375a73.jpg)
 ![2](https://user-images.githubusercontent.com/47353542/156956796-e70dbe64-45fb-4e4d-9715-db3558918d1e.jpg)

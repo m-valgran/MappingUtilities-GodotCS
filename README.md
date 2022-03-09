@@ -7,8 +7,8 @@ This tool is intended to make the logical creation and representation of regular
 With Mapping Utilities we can simulate, for instance: forests, rivers, roads, dungeons, cities, etc, and print them
 in a bidimensional plane.
 ### What does this NOT do? (As for now)
-Mapping Utilities cannot simulate depth or elevation, as it lacks of a third dimension to work with 
-(in other words: It outputs a XY plane, not a XYZ plane).
+Mapping Utilities cannot simulate depth or elevation, as it lacks of a third dimension to work with. 
+In other words: It outputs a XY plane (2D), not a XYZ plane (3D).
 So, for example, given the case of creating a mountain, It is possible to generate Its boundaries, but not the progressive height from Its feet to the summit.
 
 ![1](https://user-images.githubusercontent.com/47353542/156956727-1cbfe154-7935-4b85-ad76-d6bcd9375a73.jpg)

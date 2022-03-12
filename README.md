@@ -9,7 +9,7 @@ With Mapping Utilities we can simulate, for instance: forests, rivers, roads, du
 Mapping Utilities, out of the box, cannot simulate grid depth nor elevation, as it lacks of a third dimension to work with. 
 In other words: It outputs a XY plane (2D), not a XYZ matrix (3D).
 So, for example, given the case of creating a mountain, It is possible to generate Its boundaries, whereas It is impossible to resemble the progressive height from Its feet to the summit without the help of a third dimension grid.
-## Rough Usage Example (Generate a dungeon)
+## Rough usage example (generate a dungeon)
 ```
 		//generating a series of points
 		Rectangle points = new Rectangle(new Vector2(7,7),false);
@@ -64,5 +64,7 @@ So, for example, given the case of creating a mountain, It is possible to genera
 		//rendering...
 ```
 ### Output
-![1](https://user-images.githubusercontent.com/47353542/158003020-0b9fb7e1-1037-4cdf-9126-c7a912780318.jpg)
-![2](https://user-images.githubusercontent.com/47353542/158003022-da68ab6c-42e4-4eef-8834-9078ab6af0d8.jpg)
+<p align="center">
+    ![1](https://user-images.githubusercontent.com/47353542/158003020-0b9fb7e1-1037-4cdf-9126-c7a912780318.jpg)
+    ![2](https://user-images.githubusercontent.com/47353542/158003022-da68ab6c-42e4-4eef-8834-9078ab6af0d8.jpg)
+</p>

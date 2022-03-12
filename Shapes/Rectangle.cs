@@ -22,7 +22,5 @@ namespace MappingUtilities{
             }
             return grid;
         }
-        
-        //offset origin to center (if is an odd-numbered rectangle (for instance 7;5) moves the origin (0;0) to the center of the rectangle)
     }
 }

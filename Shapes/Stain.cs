@@ -8,7 +8,7 @@ namespace MappingUtilities{
 
         public Stain(uint area, bool allowSlopes = true) : base (Generate(area,allowSlopes)){ }
 
-        private static List<Vector2> Generate(uint area, bool allowSlopes = true){
+        private static List<Vector2> Generate(uint area, bool allowSlopes){
             List<Vector2> grid = new List<Vector2>();
             grid.Add(new Vector2(0,0));
 

@@ -9,13 +9,13 @@ With Mapping Utilities we can simulate, for instance: forests, rivers, roads, du
 Mapping Utilities, out of the box, cannot simulate grid depth nor elevation, as it lacks of a third dimension to work with. 
 In other words: It outputs a XY plane (2D), not a XYZ matrix (3D).
 So, for example, given the case of creating a mountain, It is possible to generate Its boundaries, whereas It is impossible to resemble the progressive height from Its feet to the summit without the help of a third dimension grid.
-## Rough Usage Example
+## Rough Usage Example (Generate a dungeon)
 ```
 		//generating a series of points
 		Rectangle points = new Rectangle(new Vector2(7,7),false);
 		points.Spread(10);
 
-		//the list that will cpntain our dungeon
+		//creating the grid that will contain the dungeon
 		List<Vector2> dungeon = new List<Vector2>();
 
 		//getting a random point as beginning
@@ -26,7 +26,7 @@ So, for example, given the case of creating a mountain, It is possible to genera
 		int corridorAmount = 5;
 		Vector2 endPoint;
 		for (int i = 0; i <= corridorAmount; i++){
-			//no way for the end point to be the same as the start point
+			//the following line = no way for the end point to be the same as the start point
 			points.Grid.Remove(startPoint);
 			//selecting the end point
 			endPoint = points.Grid[rnd.Next(0,points.Grid.Count)];
@@ -39,7 +39,7 @@ So, for example, given the case of creating a mountain, It is possible to genera
 				stain.Offset = cell;
 				dungeon.AddRange(stain.Grid);
 			});
-			//Drawing a room in this point
+			//drawing a room in this point
 			Stain room = new Stain(200,false);
 			room.Offset = startPoint;
 			//defining the current end point as the beginning, for the next iteration
@@ -61,7 +61,7 @@ So, for example, given the case of creating a mountain, It is possible to genera
 		//generating walls
 		List<Vector2> walls = new Any(dungeon).GenerateOutline();
 
-		//render...
+		//rendering...
 ```
 ### Output
 ![1](https://user-images.githubusercontent.com/47353542/158003020-0b9fb7e1-1037-4cdf-9126-c7a912780318.jpg)

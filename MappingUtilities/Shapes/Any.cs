@@ -7,7 +7,7 @@ using System.Collections.Generic;
 /// </summary>
 namespace MappingUtilities{
 
-    sealed class Any : Shape{
+    sealed public class Any : Shape{
         
         public Any(List<Vector2> grid) : base (grid){ }
     }

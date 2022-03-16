@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MappingUtilities{
     
-    sealed class Line : Shape{
+    sealed public class Line : Shape{
         
         public Line(Vector2 endPos) : base (Generate(endPos)){ }
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MappingUtilities{
     
-    sealed class Stain : Shape{
+    sealed public class Stain : Shape{
 
         public Stain(uint area, bool allowSlopes = true) : base (Generate(area,allowSlopes)){ }
 

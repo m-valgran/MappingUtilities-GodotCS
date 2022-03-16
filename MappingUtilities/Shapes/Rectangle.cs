@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace MappingUtilities{
 
-    sealed class Rectangle : Shape{
+    sealed public class Rectangle : Shape{
 
         public Rectangle(Vector2 area, bool fill = true) : base (Generate(area,fill)){ }
 

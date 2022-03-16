@@ -9,7 +9,7 @@ namespace MappingUtilities{
     /// All shapes start at 0,0. Offset them if needed.
     /// "Grid" will be referred to as a synonym of List<Vector2>.
     /// </summary>
-    abstract class Shape{
+    abstract public class Shape{
         private List<Vector2> _grid;                //The current form of the shape.
         private List<Vector2> _originalGrid;        //Memory field that remembers the original shape form.
         private Vector2 _offset = new Vector2(0,0); //Control field that keeps track of the shape's offset.

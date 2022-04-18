@@ -55,7 +55,7 @@ Godot C# library for procedural grid map generation.
 
 		//rendering...
 ```
-### Output
+### Possible outputs
 <p align="center">
 	<img width="400" height="400" src="https://user-images.githubusercontent.com/47353542/158003020-0b9fb7e1-1037-4cdf-9126-c7a912780318.jpg">
 	<img width="400" height="400" src="https://user-images.githubusercontent.com/47353542/158003022-da68ab6c-42e4-4eef-8834-9078ab6af0d8.jpg">

@@ -1,8 +1,6 @@
 # Mapping Utilities [Godot-C#]
-## Work in progress.
-### What is this?
-Mapping Utilities is a Godot C# library for procedural grid map generation.
-This tool is intended to make the logical creation and physical representation of irregular bodies much easier. 
+Godot C# library for procedural grid map generation.
+
 ## Rough usage example (generate a dungeon)
 ```
 		//generating a series of points

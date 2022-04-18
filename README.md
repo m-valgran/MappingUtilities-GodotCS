@@ -1,5 +1,5 @@
 # Mapping Utilities [Godot-C#]
-Godot C# library for procedural grid map generation.
+Godot-C# library for procedural grid map generation.
 
 ## Rough usage example (generate a dungeon)
 ```

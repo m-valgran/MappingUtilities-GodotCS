@@ -65,6 +65,7 @@ Godot-C# library for procedural 2D grid map generation.
 		List<Vector2> walls = new Any(dungeon).GenerateOutline();
 
 		//rendering...
+		//Here I suggest using Tilemaps with custom textures
 ```
 ### Example of random outputs
 <p align="center">
